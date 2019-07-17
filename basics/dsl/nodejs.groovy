@@ -13,15 +13,7 @@ job('NodeJS example') {
                          // Manage Jenkins -> Configure Tools -> NodeJS Installations -> Name
     }
     steps {
-        dockerBuildAndPublish {
-            repositoryName(ac/dc)
-            tag('${GIT_REVISION,length=9}')
-            registryCredentials('dockerhub')
-            forcePull(false)
-            forceTag(false)
-            createFingerprints(false)
-            skipDecorate()
-        }
+        install npm
     }
 }
 
